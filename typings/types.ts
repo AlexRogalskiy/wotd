@@ -126,11 +126,11 @@ export interface ParsedRequest {
     /**
      * Requested image width
      */
-    width?: string
+    width?: string | undefined
     /**
      * Requested image height
      */
-    height?: string
+    height?: string | undefined
     /**
      * Requested image color pattern
      */

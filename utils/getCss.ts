@@ -27,13 +27,18 @@ export const css = (colorOptions: ColorOptions): string => {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
         color: ${fontColor};
-        text-align: right;
-        margin: 3% 3% 0% 0%;
+        text-align: left;
+        margin: 3% 3% 3% 3%;
       }
       .font-monserratRegular {
         font-family: 'Montserrat', sans-serif;
-        font-style: italic;
+        font-style: normal;
         color: ${fontColor};
+      }
+      .font-monserratRegular ._name {
+        font-style: italic;
+        font-weight: bold;
+        padding: 2% 2%;
       }
       .word-wrapper {
         background: ${backgroundColor};
@@ -48,7 +53,7 @@ export const css = (colorOptions: ColorOptions): string => {
       }
       p{
         font-size: 1.0rem;
-        margin: 10% 5%;
+        margin: 5% 5%;
       }
       p.site {
         margin-top: 10px;

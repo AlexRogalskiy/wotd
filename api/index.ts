@@ -2,7 +2,8 @@ import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
 import { wotdRenderer } from '../utils/wotd'
 import { toString } from '../utils/commons'
-import { LanguagePattern, HeroPattern } from '../typings/types'
+
+import { HeroPattern, LanguagePattern } from '../typings/types'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {

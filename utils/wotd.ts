@@ -1,15 +1,18 @@
 import axios from 'axios'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import cheerio, { Root } from 'cheerio'
+import cheerio, { Cheerio, Root } from 'cheerio'
 
 import { ColorOptions, ImageOptions, LanguagePattern, ParsedRequest } from '../typings/types'
 import { css } from './getCss'
 import { mergeProps, randomEnum, toFormatString } from './commons'
 import { CONFIG } from './config'
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports,@typescript-eslint/no-var-requires
+require('https').globalAgent.options.rejectUnauthorized = false
+
 type WordData = {
-    word: string
+    title: string
     link: string | undefined
     partOfSpeech: Record<string, string>
     example: Record<string, string>
@@ -22,17 +25,18 @@ export async function wotdRenderer(parsedRequest: ParsedRequest): Promise<string
     const colorOptions: ColorOptions = mergeProps(CONFIG.colorOptions, rest)
     const imageOptions: ImageOptions = mergeProps(CONFIG.imageOptions, { width, height })
 
+    const pattern = language === undefined ? randomEnum(LanguagePattern) : language
+
     console.log(
         `
         >>> Generating Word of the Day with parameters:
-        language=${language},
+        pattern=${pattern},
         colorOptions=${toFormatString(colorOptions)}
         imageOptions=${toFormatString(imageOptions)}
         `
     )
 
-    const lang = language === undefined ? randomEnum(LanguagePattern) : language
-    const wordData: WordData = await getWordByLang(lang)
+    const wordData: WordData = await getWordByPattern(pattern)
 
     return `
     <svg
@@ -44,20 +48,20 @@ export async function wotdRenderer(parsedRequest: ParsedRequest): Promise<string
               <div class="word-wrapper">
                 <div class="word-wrapper-desc">
                   <p class="font-monserrat700">
-                    <a href="${wordData.link}" target="_blank">${wordData.word}</a>
+                    <a href="${wordData.link}" target="_blank">${wordData.title}</a>
                   </p>
                   <div class="line"></div>
                   <p class="font-monserratRegular">
-                    <span>${wordData.partOfSpeech.name}</span>
-                    <span>${wordData.partOfSpeech.value}</span>
+                    <span class="_name">${wordData.partOfSpeech.name}</span>
+                    <span class="_value">${wordData.partOfSpeech.value}</span>
                   </p>
                   <p class="font-monserratRegular">
-                    <span>${wordData.example.name}</span>
-                    <span>${wordData.example.value}</span>
+                    <span class="_name">${wordData.example.name}</span>
+                    <span class="_value">${wordData.example.value}</span>
                   </p>
                   <p class="font-monserratRegular">
-                    <span>${wordData.description.name}</span>
-                    <span>${wordData.description.value}</span>
+                    <span class="_name">${wordData.description.name}</span>
+                    <span class="_value">${wordData.description.value}</span>
                   </p>
                 </div>
               </div>
@@ -68,35 +72,46 @@ export async function wotdRenderer(parsedRequest: ParsedRequest): Promise<string
   `
 }
 
-const getWordByLang = async (lang: LanguagePattern): Promise<WordData> => {
-    const url = `${CONFIG.routeOptions.url}${lang}`
+const getWordByPattern = async (pattern: LanguagePattern): Promise<WordData> => {
+    const url = `${CONFIG.routeOptions.url}${pattern}`
 
-    // Fetching the HTML using axios
-    const data = await axios.get(url)
+    // Fetching html using axios
+    const response = await axios.get(url)
 
-    // Using cheerio to load the HTML fetched
-    const html: Root = cheerio.load(data)
+    if (response.status !== 200) {
+        throw new Error(`Cannot request resource by url=${url}, message=${response.statusText}`)
+    }
 
-    //Gets the quote
-    const word = html('table > h3 > a').text()?.trim()
-    const link = html('table > h3 > a').attr('href')?.trim()
+    // Parsing html data
+    const html = cheerio.load(response.data, { xmlMode: true })
 
-    const partOfSpeech = getRecord(html, 'table > table > tr[0]')
-    const example = getRecord(html, 'table > table > tr[1]')
-    const description = getRecord(html, 'table > table > tr[2]')
+    // Selecting data from html
+    const title = getText(html('item title'))
+    const link = getText(html('item guid'))
+    const content = getText(html('item description'))
+
+    // Selecting data from description
+    const table = cheerio.load(content)
+    const partOfSpeech = getRecord(table, 1)
+    const example = getRecord(table, 2)
+    const description = getRecord(table, 3)
 
     return {
-        description,
-        example,
-        partOfSpeech,
+        title,
         link,
-        word,
+        partOfSpeech,
+        example,
+        description,
     }
 }
 
-const getRecord = (html: Root, selector: string): Record<string, string> => {
-    const name = html(`${selector} > th`).text()?.trim()
-    const value = html(`${selector} > td`).text()?.trim()
+const getRecord = (html: Root, selector: number): Record<string, string> => {
+    const name = getText(html(`tr:nth-child(${selector}) th`))
+    const value = getText(html(`tr:nth-child(${selector}) td`))
 
     return { name, value }
+}
+
+const getText = (str: Cheerio): string => {
+    return str && str.text()?.trim()
 }
