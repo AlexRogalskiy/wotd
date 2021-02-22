@@ -50,11 +50,11 @@ export const css = (colorOptions: ColorOptions): string => {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 5% 5%;
+        padding: 3% 3%;
       }
       p{
         font-size: 1.0rem;
-        margin: 5% 5%;
+        margin: 3% 3%;
       }
       p.site {
         margin-top: 10px;
