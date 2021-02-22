@@ -36,10 +36,15 @@ export const css = (colorOptions: ColorOptions): string => {
         font-style: normal;
         color: ${fontColor};
       }
-      .font-monserratRegular ._name {
+      ._name {
         font-style: italic;
         font-weight: bold;
-        padding: 2% 0%;
+        padding: 1% 2%;
+      }
+      ._value {
+        font-style: normal;
+        font-weight: normal;
+        padding: 0% 4%;
       }
       .word-wrapper {
         background: ${backgroundColor};
@@ -50,7 +55,7 @@ export const css = (colorOptions: ColorOptions): string => {
         flex-direction: row;
         justify-content: center;
         align-items: center;
-        padding: 3% 3%;
+        padding: 2% 2%;
       }
       p{
         font-size: 1.0rem;
@@ -70,7 +75,7 @@ export const css = (colorOptions: ColorOptions): string => {
         max-width: 100%;
         margin: 0 auto;
         border: none;
-        border-bottom: 4px dashed #666;
+        border-bottom: 4px solid #666;
       }
     `
 }

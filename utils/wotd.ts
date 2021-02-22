@@ -12,6 +12,7 @@ import { CONFIG } from './config'
 require('https').globalAgent.options.rejectUnauthorized = false
 
 type WordData = {
+    language: string
     title: string
     link: string | undefined
     partOfSpeech: Record<string, string>
@@ -48,7 +49,8 @@ export async function wotdRenderer(parsedRequest: ParsedRequest): Promise<string
               <div class="word-wrapper">
                 <div class="word-wrapper-desc">
                   <p class="font-monserrat700">
-                    <a href="${wordData.link}" target="_blank">${wordData.title}</a>
+                    <div class="_name">${wordData.language}</div>
+                    <div class="_value"><a href="${wordData.link}" target="_blank">${wordData.title}</a></div>
                   </p>
                   <div class="line"></div>
                   <p class="font-monserratRegular">
@@ -86,6 +88,7 @@ const getWordByPattern = async (pattern: LanguagePattern): Promise<WordData> => 
     const html = cheerio.load(response.data, { xmlMode: true })
 
     // Selecting data from html
+    const language = getText(html('title:first'))
     const title = getText(html('item title'))
     const link = getText(html('item guid'))
     const content = getText(html('item description'))
@@ -97,6 +100,7 @@ const getWordByPattern = async (pattern: LanguagePattern): Promise<WordData> => 
     const description = getRecord(table, 3)
 
     return {
+        language,
         title,
         link,
         partOfSpeech,
