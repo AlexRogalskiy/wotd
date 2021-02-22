@@ -223,7 +223,7 @@ This is example of using _**Styled Wotd**_:
 Result:
 
 <div align="center" style="align-content: center">
-    <img width="100%" height="350px" src="https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&fontColor=%230A83DC&opacity=0.3&colorPattern=%23FFE0E9" alt="Word of the Day" />
+    <img width="100%" height="400px" src="https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&fontColor=%230A83DC&opacity=0.3&colorPattern=%23FFE0E9" alt="Word of the Day" />
 </div>
 
 ## _Visitor stats_
