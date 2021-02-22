@@ -70,7 +70,7 @@ export const css = (colorOptions: ColorOptions): string => {
         max-width: 100%;
         margin: 0 auto;
         border: none;
-        border-bottom: 2px dashed #666;
+        border-bottom: 4px dashed #666;
       }
     `
 }
