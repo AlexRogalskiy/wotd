@@ -73,7 +73,7 @@ For the tech stack, _**Styled wotd**_ using Typescript and serverless function f
 It's simple, you can copy paste this markdown content, like this one:
 
 ```
-![Styled wotd](https://styled-wotd.vercel.app/api?backgroundColor=[value]&opacity=[value]&colorPattern=[value]&fontColor=[value]&pattern=[pattern]&category=[value]&width=[width]&height=[height])
+![Styled wotd](https://styled-wotd.vercel.app/api?backgroundColor=[value]&opacity=[value]&colorPattern=[value]&fontColor=[value]&pattern=[pattern]&language=[value]&width=[width]&height=[height])
 ```
 
 There are several options you can use from the list:
@@ -85,11 +85,43 @@ There are several options you can use from the list:
 | **Color Pattern**    | Color pattern for the signage          | Hex color code    | %231abc9c     | ```&colorPattern=[value]```    |
 | **Font Color**       | Font color for the quote text          | Hex color code    | %23000000     | ```&fontColor=[value]```       |
 | **Pattern**          | Pattern for the background             | String constant   | plus          | ```&pattern=[value]```         |
-| **Category**         | Quote category                         | String constant   | programming   | ```&category=[value]```        |
-| **Width**            | Quote image width                      | String            | 100%          | ```&width=[value]```           |
-| **Height**           | Quote image height                     | String            | 100%          | ```&height=[value]```          |
+| **Language**         | Wotd language                          | String constant   | arabic        | ```&language=[value]```        |
+| **Width**            | Wotd image width                       | String            | 100%          | ```&width=[value]```           |
+| **Height**           | Wotd image height                      | String            | 100%          | ```&height=[value]```          |
 
-Pattern in wotd are provided by [Hero Pattern](https://github.com/lowmess/hero-patterns) package which is developed by [Lowmess](https://github.com/lowmess/): 
+Here is a list of Languages supported by Quotes API:
+
+| **Name**                          | **Value**             | 
+| --------------------------------- | --------------------- |
+| **Arabic**                        | arabic                |
+| **Balinese**                      | balinese              |
+| **Chinese (mandarin)**            | mandarin_chinese      |
+| **Dari**                          | dari                  |
+| **Dutch**                         | dutch                 |
+| **English (portuguese)**          | portuguese_english    |
+| **English (spanish)**             | spanish_english       |
+| **Esperanto**                     | esperanto             |
+| **French**                        | french                |
+| **German**                        | german                |
+| **Hebrew**                        | hebrew                |
+| **Hindi**                         | hindi                 |
+| **Indonesian**                    | indonesian            |
+| **Irish**                         | irish                 |
+| **Italian**                       | italian               |
+| **Japanese**                      | japanese              |
+| **Korean**                        | korean                |
+| **Latin**                         | latin                 |
+| **Norwegian**                     | norwegian             |
+| **Pashto**                        | pashto                |
+| **Polish**                        | polish                |
+| **Brazilian**                     | brazilian             |
+| **Russian**                       | russian               |
+| **Spanish**                       | spanish               |
+| **Swedish**                       | swedish               |
+| **Turkish**                       | turkish               |
+| **Urdu**                          | urdu                  |
+
+Patters in Wotd are provided by [Hero Pattern](https://github.com/lowmess/hero-patterns) package which is developed by [Lowmess](https://github.com/lowmess/): 
 
 | **Name**                          | **Value**                     | 
 | --------------------------------- | ----------------------------- |
@@ -182,16 +214,16 @@ Pattern in wotd are provided by [Hero Pattern](https://github.com/lowmess/hero-p
 
 ## _Example_
 
-This is example of using _**Styled wotd**_:
+This is example of using _**Styled Wotd**_:
 
 ```
-![Styled wotd](https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC)
+![Styled wotd](https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&fontColor=%230A83DC&opacity=0.3&colorPattern=%23FFE0E9)
 ```
 
 Result:
 
 <div align="center" style="align-content: center">
-    <img width="100%" height="300px" style="min-height: 250px" src="https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&opacity=0.3&colorPattern=%23FFE0E9&fontColor=%230A83DC" alt="wotd" />
+    <img width="100%" height="300px" style="min-height: 250px" src="https://styled-wotd.vercel.app/api?backgroundColor=%23FFFFFF&fontColor=%230A83DC&opacity=0.3&colorPattern=%23FFE0E9" alt="Word of the Day" />
 </div>
 
 ## _Visitor stats_
@@ -204,14 +236,14 @@ Result:
 
 ## _Licensing_
 
-_**Styled wotd**_ is distributed under LGPL version 3 or later, [[License](https://github.com/AlexRogalskiy/wotd/blob/master/LICENSE)].
+_**Styled Wotd**_ is distributed under LGPL version 3 or later, [[License](https://github.com/AlexRogalskiy/wotd/blob/master/LICENSE)].
 LGPLv3 is additional permissions on top of GPLv3.
 
 ![license](https://user-images.githubusercontent.com/19885116/48661948-6cf97e80-ea7a-11e8-97e7-b45332a13e49.png)
 
 ## _Authors_
 
-_**Styled wotd**_ is maintained by the following GitHub team-members:
+_**Styled Wotd**_ is maintained by the following GitHub team-members:
 
 * [![Author](https://img.shields.io/badge/author-AlexRogalskiy-FB8F0A)](https://github.com/AlexRogalskiy)
 
@@ -246,7 +278,7 @@ See also the list of [contributors][contributors] who participated in this proje
 
 ## _Development Support_
 
-Like _**Styled wotd**_ ? Consider buying me a coffee :\)
+Like _**Styled Wotd**_ ? Consider buying me a coffee :\)
 
 [![Become a Patron](https://img.shields.io/badge/Become_Patron-Support_me_on_Patreon-blue.svg?style=flat-square&logo=patreon&color=e64413)](https://www.patreon.com/alexrogalskiy)
 [![Buy Me A Coffee](https://img.shields.io/badge/Donate-Buy%20me%20a%20coffee-yellow.svg?logo=buy%20me%20a%20coffee)](https://www.buymeacoffee.com/AlexRogalskiy)

@@ -26,6 +26,7 @@ export const css = (colorOptions: ColorOptions): string => {
       .font-monserrat700 {
         font-family: 'Montserrat', sans-serif;
         font-weight: bold;
+        font-size: 1.5rem;
         color: ${fontColor};
         text-align: left;
         margin: 3% 3% 3% 3%;
@@ -38,7 +39,7 @@ export const css = (colorOptions: ColorOptions): string => {
       .font-monserratRegular ._name {
         font-style: italic;
         font-weight: bold;
-        padding: 2% 2%;
+        padding: 3% 0%;
       }
       .word-wrapper {
         background: ${backgroundColor};

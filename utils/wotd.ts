@@ -52,16 +52,16 @@ export async function wotdRenderer(parsedRequest: ParsedRequest): Promise<string
                   </p>
                   <div class="line"></div>
                   <p class="font-monserratRegular">
-                    <span class="_name">${wordData.partOfSpeech.name}</span>
-                    <span class="_value">${wordData.partOfSpeech.value}</span>
+                    <div class="_name">${wordData.partOfSpeech.name}</div>
+                    <div class="_value">${wordData.partOfSpeech.value}</div>
                   </p>
                   <p class="font-monserratRegular">
-                    <span class="_name">${wordData.example.name}</span>
-                    <span class="_value">${wordData.example.value}</span>
+                    <div class="_name">${wordData.example.name}</div>
+                    <div class="_value">${wordData.example.value}</div>
                   </p>
                   <p class="font-monserratRegular">
-                    <span class="_name">${wordData.description.name}</span>
-                    <span class="_value">${wordData.description.value}</span>
+                    <div class="_name">${wordData.description.name}</div>
+                    <div class="_value">${wordData.description.value}</div>
                   </p>
                 </div>
               </div>
