@@ -1,5 +1,7 @@
 # _Styled wotd_
 
+> Generate SVG [styled wotd](https://en.wiktionary.org/wiki/Wiktionary:Word_of_the_day)
+
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/AlexRogalskiy/wotd)
 ![GitHub Release Date](https://img.shields.io/github/release-date/AlexRogalskiy/wotd)
 ![Lines of code](https://tokei.rs/b1/github/AlexRogalskiy/wotd?category=lines)
@@ -14,6 +16,7 @@
 ![GitHub Repository dependents](https://badgen.net/github/dependents-repo/AlexRogalskiy/wotd)
 [![Tokei](https://tokei.rs/b1/github/AlexRogalskiy/wotd?category=lines)](https://github.com/XAMPPRocky/tokei)
 ![Mergify Status](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges/AlexRogalskiy/wotd)
+[![Reviewed by Hound](https://img.shields.io/badge/Reviewed_by-Hound-8E64B0.svg)](https://houndci.com)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/wotd/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/wotd)](https://img.shields.io/github/issues/alexrogalskiy/wotd)
@@ -79,16 +82,16 @@ It's simple, you can copy paste this markdown content, like this one:
 
 There are several options you can use from the list:
 
-|  **Options**         | **Description**                        |   **Type**        | **Example**   | **Query Params**               | 
-| -------------------- | -------------------------------------- | ----------------- | ------------- | ------------------------------ |
-| **Background Color** | Background color for the quote image   | Hex color code    | %23ffffff     | ```?backgroundColor=[value]``` |
-| **Opacity Pattern**  | Background opacity of the pattern      | Float number      | 0 - 1         | ```&opacity=[value]```         |
-| **Color Pattern**    | Color pattern for the signage          | Hex color code    | %231abc9c     | ```&colorPattern=[value]```    |
-| **Font Color**       | Font color for the quote text          | Hex color code    | %23000000     | ```&fontColor=[value]```       |
-| **Pattern**          | Pattern for the background             | String constant   | plus          | ```&pattern=[value]```         |
-| **Language**         | Wotd language                          | String constant   | arabic        | ```&language=[value]```        |
-| **Width**            | Wotd image width                       | String            | 100%          | ```&width=[value]```           |
-| **Height**           | Wotd image height                      | String            | 100%          | ```&height=[value]```          |
+|  **Options**         | **Description**                          |   **Type**                     | **Example**   | **Query Params**               | 
+| -------------------- | ---------------------------------------- | ------------------------------ | ------------- | ------------------------------ |
+| **[Background Color]** | Background color for the quote image   | <code>Hex string</code>        | %23ffffff     | ```?backgroundColor=[value]``` |
+| **[Opacity Pattern]**  | Background opacity of the pattern      | <code>Float</code>             | 0 - 1         | ```&opacity=[value]```         |
+| **[Color Pattern]**    | Color pattern for the signage          | <code>Hex string</code>        | %231abc9c     | ```&colorPattern=[value]```    |
+| **[Font Color]**       | Font color for the quote text          | <code>Hex string</code>        | %23000000     | ```&fontColor=[value]```       |
+| **[Pattern]**          | Pattern for the background             | <code>String constant</code>   | plus          | ```&pattern=[value]```         |
+| **[Language]**         | Wotd language                          | <code>String constant</code>   | arabic        | ```&language=[value]```        |
+| **[Width]**            | Wotd image width                       | <code>String</code>            | 100%          | ```&width=[value]```           |
+| **[Height]**           | Wotd image height                      | <code>String</code>            | 100%          | ```&height=[value]```          |
 
 Here is a list of Languages supported by Quotes API:
 
