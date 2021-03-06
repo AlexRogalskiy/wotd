@@ -13,6 +13,8 @@
         "lint": "eslint --cache --fix --quiet --format codeframe --ext js,ts .",
         "reinstall": "del-cli ./node_modules ./package-lock.json ./yarn.lock",
         "postreinstall": "yarn setup",
+        "postinstall": "husky install",
+        "prepare": "rimraf coverage",
         "setup": "yarn",
         "semantic-release": "semantic-release",
         "test": "TZ=utc jest",
@@ -53,6 +55,7 @@
         "semantic-release": ">=17.2.3",
         "ts-jest": "^26.4.4",
         "ts-node": ">=9.0.0",
+        "husky": "^5.0.8",
         "typescript": "^4.1.3"
     },
     "repository": {
@@ -101,6 +104,11 @@
                 }
             ]
         ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm test:all"
+        }
     },
     "bugs": {
         "url": "https://github.com/AlexRogalskiy/wotd/issues"
