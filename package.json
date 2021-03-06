@@ -17,7 +17,7 @@
         "prepare": "rimraf coverage",
         "setup": "yarn",
         "semantic-release": "semantic-release",
-        "test": "set TZ=utc jest",
+        "test": "env-cmd -e test jest",
         "test:coverage": "jest --collectCoverage",
         "test:watch": "jest --watch",
         "test:all": "npm run test",
@@ -28,7 +28,8 @@
         "cheerio": "^1.0.0-rc.5",
         "hero-patterns": "^2.1.0",
         "isomorphic-unfetch": "^3.1.0",
-        "lodash": "^4.17.20"
+        "lodash": "^4.17.20",
+        "env-cmd": "^10.1.0"
     },
     "devDependencies": {
         "@semantic-release/github": "^7.2.0",
