@@ -70,8 +70,8 @@
     </a>
 </p>
 
-_**Styled wotd**_ is a serverless function that generates dynamically styled quote images based on SVG (Scalable Vector Graphics).
-For the tech stack, _**Styled wotd**_ using Typescript and serverless function from Vercel stack.
+_**Styled Wotd**_ is a serverless function that generates dynamically styled quote images based on SVG (Scalable Vector Graphics).
+For the tech stack, _**Styled Wotd**_ using Typescript and serverless function from Vercel stack.
 
 ## _How to use_
 
