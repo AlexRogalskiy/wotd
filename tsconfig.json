@@ -25,11 +25,11 @@
         "typeRoots": [
             "node_modules/@types"
         ],
-        "target": "ES2019",
-        "module": "commonjs",
+        "target": "ESNext",
+        "module": "ESNext",
         "resolveJsonModule": true,
         "moduleResolution": "node",
-        "sourceMap": false,
+        "sourceMap": true,
         "declaration": true,
         "declarationMap": true,
         "pretty": true,
@@ -41,12 +41,14 @@
         "strictNullChecks": true,
         "strictFunctionTypes": false
     },
-    "exclude": [
-        "node_modules",
-        "**/*.test.ts",
-        "tmp"
-    ],
     "include": [
         "."
+    ],
+    "exclude": [
+        "tmp",
+        "data",
+        "docs",
+        "node_modules",
+        "**/*.test.ts"
     ]
 }

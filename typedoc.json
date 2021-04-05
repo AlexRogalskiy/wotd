@@ -1,0 +1,21 @@
+{
+    "name": "Word of the Day TypeDoc",
+    "entryPoints": [
+        "./api",
+        "./src",
+        "./typings"
+    ],
+    "exclude": [
+        "**/__tests__/**/*",
+        "**/__test_utils__/**/*",
+        "**/__fixtures__/**/*",
+        "**/*+(.spec|.e2e).ts",
+        "**/+(dev-packages|examples|scripts)/**/*",
+        "**/*+(.spec|.e2e).ts"
+    ],
+    "excludeExternals": true,
+    "hideGenerator": true,
+    "readme": "README.md",
+    "highlightTheme": "dark-plus",
+    "out": "docs"
+}

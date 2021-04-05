@@ -1,41 +1,18 @@
 import { NowRequest, NowResponse, VercelResponse } from '@vercel/node'
 
-import { wotdRenderer } from '../utils/wotd'
-import { toString } from '../utils/commons'
+import { RoutePattern } from '../typings/enum-types'
 
-import { HeroPattern, LanguagePattern } from '../typings/types'
+import { toString } from '../src/utils/commons'
+
+import { getRoute } from '../src/routes/routes'
 
 export default async function render(req: NowRequest, res: NowResponse): Promise<VercelResponse> {
     try {
-        const {
-            language,
-            pattern,
-            width,
-            height,
-            backgroundColor,
-            fontColor,
-            opacity,
-            colorPattern,
-        } = req.query
+        const routePattern = RoutePattern[toString(req.query.operation)]
 
-        const wotd = await wotdRenderer({
-            language: LanguagePattern[toString(language)] as LanguagePattern,
-            pattern: HeroPattern[toString(pattern)] as HeroPattern,
-            width: toString(width),
-            height: toString(height),
-            backgroundColor,
-            fontColor,
-            opacity,
-            colorPattern,
-        })
+        const route = getRoute(routePattern)
 
-        res.setHeader('Cache-Control', 'no-cache,max-age=0,no-store,s-maxage=0,proxy-revalidate')
-        res.setHeader('Pragma', 'no-cache')
-        res.setHeader('Expires', '-1')
-        res.setHeader('Content-type', 'image/svg+xml')
-        res.setHeader('X-Powered-By', 'Vercel')
-
-        return res.send(wotd)
+        return await route(req, res)
     } catch (error) {
         return res.send({
             status: 'Error',
