@@ -23,7 +23,7 @@
 [![DOI](https://zenodo.org/badge/341363749.svg)](https://zenodo.org/badge/latestdoi/341363749)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/wotd.svg)](https://david-dm.org/AlexRogalskiy/wotd)
 [![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/wotd.svg)](https://david-dm.org/AlexRogalskiy/wotd)
-[![dependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/wotd.svg)](https://david-dm.org/AlexRogalskiy/wotd?type=dev)
+[![devDependencies Status](https://status.david-dm.org/gh/AlexRogalskiy/wotd.svg)](https://david-dm.org/AlexRogalskiy/wotd?type=dev)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/alexrogalskiy/wotd/master/LICENSE?token=AH44ZFH7IF2KSEDK7LSIW3C7YOFYC)
 [![Issue](https://img.shields.io/github/issues/alexrogalskiy/wotd)](https://img.shields.io/github/issues/alexrogalskiy/wotd)
