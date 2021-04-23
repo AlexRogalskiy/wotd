@@ -34,6 +34,7 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/AlexRogalskiy/wotd.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/wotd/alerts/)
 [![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/AlexRogalskiy/wotd.svg?logo=lgtm\&logoWidth=18)](https://lgtm.com/projects/g/AlexRogalskiy/wotd/context:javascript)
 
+[![codebeat badge](https://codebeat.co/badges/49c503f7-60ed-42e0-9cd3-e631ea6e2c69)](https://codebeat.co/projects/github-com-alexrogalskiy-wotd-master)
 [![Renovatebot](https://badgen.net/badge/renovate/enabled/green?cache=300)](https://renovatebot.com/)
 [![Dependabot](https://img.shields.io/badge/dependabot-enabled-1f8ceb.svg?style=flat-square)](https://dependabot.com/)
 [![NewReleases](https://newreleases.io/badge.svg)](https://newreleases.io/github/AlexRogalskiy/wotd)
