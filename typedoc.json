@@ -1,9 +1,12 @@
 {
-    "name": "Word of the Day TypeDoc",
+    "name": "Styled Word of the Day TypeDoc",
     "entryPoints": [
         "./api",
         "./src",
         "./typings"
+    ],
+    "externalPattern": [
+        "./data"
     ],
     "exclude": [
         "**/__tests__/**/*",

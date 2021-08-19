@@ -338,6 +338,20 @@ LGPLv3 is additional permissions on top of GPLv3.
 
 with community support please contact with us if you have some question or proposition.
 
+## *Kubernetes*
+
+Running k8s cluster with tilt command by acquiring k8s deployment configuration:
+
+```shell
+tilt up
+```
+
+Shutting down k8s cluster with provisioned resources removal:
+
+```shell
+tilt down --delete-namespaces
+```
+
 ## *Versioning*
 
 The project uses [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository][tags].
@@ -360,6 +374,8 @@ See also the list of [contributors][contributors] who participated in this proje
 ## *Acknowledgement*
 
 [![Stargazers repo roster for @AlexRogalskiy/wotd](https://reporoster.com/stars/AlexRogalskiy/wotd)][stars]
+
+[![Stargazers over time](https://starchart.cc/AlexRogalskiy/wotd.svg)][stars_chart]
 
 ## *Forks*
 
@@ -414,6 +430,8 @@ Like ***Styled Word of the Day*** ? Consider buying me a coffee :)
 [wiki]: https://github.com/AlexRogalskiy/wotd/wiki
 
 [stars]: https://github.com/AlexRogalskiy/wotd/stargazers
+
+[stars_chart]: https://starchart.cc/AlexRogalskiy/wotd
 
 [forkers]: https://github.com/AlexRogalskiy/wotd/network/members
 

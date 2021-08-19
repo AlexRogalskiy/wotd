@@ -29,7 +29,7 @@
         "module": "ESNext",
         "resolveJsonModule": true,
         "moduleResolution": "node",
-        "sourceMap": true,
+        "sourceMap": false,
         "declaration": true,
         "declarationMap": true,
         "pretty": true,
