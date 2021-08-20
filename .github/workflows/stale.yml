@@ -1,14 +1,32 @@
 name: Stale issues and pull requests
 
 on:
+  push:
+    paths:
+      - .github/workflows/stale.yml
+    branches-ignore:
+      - dependabot/**
   schedule:
+    # Once every day at midnight UTC
     - cron: "0 0 * * *"
+  issue_comment:
+
+concurrency:
+  group: stale
+  cancel-in-progress: ${{ github.event_name != 'issue_comment' }}
 
 jobs:
   stale:
+    if: >
+      startsWith(github.repository, 'AlexRogalskiy/') && (
+        github.event_name != 'issue_comment' || (
+          contains(github.event.issue.labels.*.name, 'stale') ||
+          contains(github.event.pull_request.labels.*.name, 'stale')
+        )
+      )
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v3
+      - name: Mark/Close Stale Issues and Pull Requests
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           stale-pr-message: 'This pull request is stale because it has been open 6 months with no activity. Please comment or this will be closed in 14 days.'
@@ -23,3 +41,26 @@ jobs:
           exempt-issue-labels: 'awaiting-approval,work-in-progress'
           exempt-pr-labels: 'awaiting-approval,work-in-progress'
           only-labels: 'awaiting-feedback,awaiting-answers'
+
+  bump-pr-stale:
+    if: >
+      startsWith(github.repository, 'AlexRogalskiy/') && (
+        github.event_name != 'issue_comment' || (
+          contains(github.event.issue.labels.*.name, 'stale') ||
+          contains(github.event.pull_request.labels.*.name, 'stale')
+        )
+      )
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mark/Close Stale `bump-pr` Pull Requests
+        uses: actions/stale@v4
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          days-before-stale: 2
+          days-before-close: 1
+          stale-pr-message: >
+            This pull request has been automatically marked as stale because it has not had
+            recent activity. It will be closed if no further activity occurs. To keep this
+            pull request open, add a `help wanted` or `in progress` label.
+          exempt-pr-labels: "help wanted,in progress"
+          any-of-labels: "bump-pr,bump-pr"
